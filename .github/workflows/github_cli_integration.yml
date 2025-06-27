@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Comment on latests commit
-      #Add comment on last commit
-        run: gh issue list > issues.html
+      #Add comment on issue
+        run: gh issue comment 1 --title "Workflow comment" --body "This is a comment from the workflow!"
         
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
