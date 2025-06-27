@@ -11,7 +11,8 @@ jobs:
     steps:
       - name: Comment on latests commit
       #Add comment on last commit
-        run: gh api repos/${{ github.repository }}/commits/${{ github.sha }}/comments -f body="Thanks for pushing your code!"
+        run: gh issue list > issues.html
+        
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
