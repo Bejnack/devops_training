@@ -1,14 +1,17 @@
 name: Comment when opened
 on:
-  issues:
-    types:
-      - opened
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
 jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      #This adds an issue with the comment in the body "Thank you..."
-      - run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
+      - name: Comment on latests commit
+      #Add comment on last commit
+        run: gh api repos/${{ github.repository }}/commits/${{ github.sha }}/comments -f body="Thanks for pushing your code!"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE: ${{ github.event.issue.html_url }}
+
