@@ -14,5 +14,5 @@ jobs:
         run: gh issue comment https://github.com/Bejnack/devops_training/issues/1 --body "This is a comment from the workflow!"
         
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          #GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.MY_GH_PAT }}
